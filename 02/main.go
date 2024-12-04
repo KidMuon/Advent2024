@@ -70,16 +70,12 @@ func (r record) graduallyChangingProblemDampened() bool {
 
 func (r record) testAround(i int) bool {
 	r_ := record{}
-	r_2 := record{}
 	for rj := 0; rj < len(r); rj++ {
-		if rj != i-1 {
+		if rj != i {
 			r_ = append(r_, r[rj])
 		}
-		if rj != i {
-			r_2 = append(r_2, r[rj])
-		}
 	}
-	return r_.graduallyChanging() || r_2.graduallyChanging()
+	return r_.graduallyChanging()
 }
 
 func (r record) graduallyChanging() bool {
